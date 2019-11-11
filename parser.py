@@ -21,7 +21,7 @@ def clear(string):
     return unescape(string)
 
 
-def parse(body, partner, max_len=1024):
+def parse(body, partner, max_len=1024, no_img=1, no_desc=1):
     info_tree = html.fromstring(body)
 
     # title
@@ -95,7 +95,7 @@ def parse(body, partner, max_len=1024):
 
         image_url = og_image[0] if og_image else twitter_image[0] if twitter_image else None
 
-    if not description and image_url is None:
+    if (description or no_desc) and (image_url or no_img):
         return None
 
     return clear(title), description, image_url
