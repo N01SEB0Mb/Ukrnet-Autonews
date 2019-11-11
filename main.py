@@ -29,19 +29,28 @@ async def checker():
             last_file.write(" ".join(map(lambda x: str(x["Id"]), last_update)))
 
         for new in news:
-            info = p.get_info(new)
-            if info:
-                title, description, image = info
-                msg = f'{hbold(title)}\n\n{description}{hlink("Подробнее", new["Url"])}'
+            try:
+                info = p.get_info(new)
+            except BaseException as error:
+                print(time() + str(err) + ": " + str(new))
+                if config["log file"]:
+                    with open("exception.log", "a") as logfile:
+                        log_file.write(time() + str(err) + ": " + str(new) + "\n")
+            else:
+                if info:
+                    title, description, image = info
+                    msg = f'{hbold(title)}\n\n{description}{hlink("Подробнее", new["Url"])}'
 
-                if image:
-                    await bot.send_photo(tg_info["channel_id"], image, caption=msg, parse_mode="HTML")
-                else:
-                    await bot.send_message(tg_info["channel_id"], msg, parse_mode="HTML")
+                    if image:
+                        await bot.send_photo(tg_info["channel_id"], image, caption=msg, parse_mode="HTML")
+                    else:
+                        await bot.send_message(tg_info["channel_id"], msg, parse_mode="HTML")
 
-        print(time() + "OK")
-        with open("exception.log", "a") as logfile:
-            logfile.write(time() + "OK\n")
+        print(time() + "checking finished")
+        if config["log file"]:
+            with open("exception.log", "a") as logfile:
+                logfile.write(time() + "checking finished\n")
+
         await asyncio.sleep(config["sleep"])
 
 
@@ -65,8 +74,14 @@ if __name__ == "__main__":
             pass
         except (BaseException, RequestException) as err:
             print(time() + str(err) + ": " + str(new))
-            with open("exception.log", "a") as log_file:
-                log_file.write(time() + str(err) + ": " + str(new) + "\n")
+            if config["log file"]:
+                with open("exception.log", "a") as log_file:
+                    log_file.write(time() + str(err) + ": " + str(new) + "\n")
         finally:
             aio_loop.run_until_complete(bot.close())
+            print(time() + "loop finished")
+            if config["log file"]:
+                with open("exception.log", "a") as log_file:
+                    log_file.write(time() + "loop finished\n")
+
             sleep(config["retry sleep"])
