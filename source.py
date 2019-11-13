@@ -4,12 +4,16 @@
 
 import parser
 import requests
-from lxml import html
+from requests.exceptions import RequestException
 
 
 class New(dict):
     def __init__(self, info):
-        super().__init__(info)
+        if info["NewsCount"] > 1:
+            super().__init__(info["News"][0])
+            self["Id"] = info["Id"]
+        else:
+            super().__init__(info)
 
     def __hash__(self):
         return self["Id"]
@@ -42,8 +46,8 @@ class Parser:
         try:
             info_request = self.session.get(new["Url"])
             assert info_request.status_code == 200 and "utf-8" in info_request.headers["content-type"].lower()
-        except (AssertionError, BaseException):
-            return None
+        except (AssertionError, BaseException, RequestException) as err:
+            return 0
 
         return parser.parse(info_request.text, new["PartnerTitle"],
                             max_len=self.max_len, no_img=self.no_img, no_desc=self.no_desc)
