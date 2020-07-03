@@ -1,17 +1,17 @@
-# Автоновости Ukr.net
+# Ukr.net Auto news
 
-Рассылка автоновостей с сайта ukr.net
+Postring auto news from ukr.net to telegram channel
 
-# Настройка
+# Settings
 
-Для настройки используйте файл config.json
+Use config.json to configure settings
 
-"main_link" - Ссылка на сайт  
-"last" - Сколько последних новостей проверять  
-"sleep" - Задержка между проверками, секунды  
-"retry sleep" - Задержка после ошибок, секунды  
-"max description len" - Максимальная длина описания (больше 1024 символов нельзя)  
-"post without image" - Публиковать если нет без изображения  
-"post without description" - Публиковать если нет описания  
-"log file" - Выводить ли логи в файл exception.logs  
-"headers" - Заголовки запроса
+"main_link" - Site URL 
+"last" - How much latest news to check
+"sleep" - Delay between cheking, seconds
+"retry sleep" - Delay after error, seconds
+"max description len" - Max description length (less than 1024)  
+"post without image" - Post if no image
+"post without description" - Post if no description
+"log file" - Enable logs
+"headers" - Request headers
