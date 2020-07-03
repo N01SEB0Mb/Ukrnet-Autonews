@@ -1,17 +1,17 @@
 # Ukr.net Auto news  
   
-Postring auto news from ukr.net to telegram channel  
+Posting auto news from ukr.net to telegram channel  
   
 # Settings  
   
 Use config.json to configure settings  
   
-"main_link" - Site URL  
-"last" - How much latest news to check  
-"sleep" - Delay between cheking, seconds  
-"retry sleep" - Delay after error, seconds  
-"max description len" - Max description length (less than 1024)  
-"post without image" - Post if no image  
-"post without description" - Post if no description  
-"log file" - Enable logs  
-"headers" - Request headers  
+<code>"main_link"</code> - Site URL  
+<code>"last"</code> - How much latest news to check  
+<code>"sleep"</code> - Delay between cheking, seconds  
+<code>"retry sleep"</code> - Delay after error, seconds  
+<code>"max description len"</code> - Max description length (less than 1024)  
+<code>"post without image"</code> - Post if no image  
+<code>"post without description"</code> - Post if no description  
+<code>"log file"</code> - Enable logs  
+<code>"headers"</code> - Request headers  
