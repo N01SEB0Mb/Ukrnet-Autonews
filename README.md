@@ -1,6 +1,7 @@
-# Ukr.net Auto news  
+# Ukr.net Autonews  
   
 Posting auto news from ukr.net to telegram channel  
+https://t.me/ukrnetautonews
   
 # Settings  
   
