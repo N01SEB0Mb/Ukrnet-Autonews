@@ -1,7 +1,10 @@
 # Ukr.net Autonews  
   
-Posting auto news from ukr.net to telegram channel  
-https://t.me/ukrnetautonews
+Posting auto news from <a href="https://www.ukr.net/" target="_blank">ukr.net</a> to telegram channel  
+<a href="https://t.me/ukrnetautonews/" target="_blank"><img src="https://web.telegram.org/img/logo_share.png"
+  width="16"
+  height="16"
+  style="float:left;">ukrnetautonews</a>
   
 # Settings  
   
