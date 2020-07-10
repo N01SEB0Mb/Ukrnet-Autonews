@@ -28,10 +28,10 @@ class New(dict):
 class Parser:
     def __init__(self, config):
         self.last = config["last"]
-        self.link = config["main_link"]
-        self.max_len = config["max description len"]
-        self.no_img = config["post without image"]
-        self.no_desc = config["post without description"]
+        self.link = config["mainLink"]
+        self.max_len = config["maxDescLen"]
+        self.no_img = config["postNoImage"]
+        self.no_desc = config["postNoDesc"]
         self.session = requests.session()
         self.session.headers.update(config["headers"])
 

@@ -1,12 +1,12 @@
 {
-  "main_link": "https://www.ukr.net/news/dat/avto/",
+  "mainLink": "https://www.ukr.net/news/dat/avto/",
   "last": 10,
   "sleep": 60,
-  "retry sleep": 120,
-  "max description len": 512,
-  "post without image": 0,
-  "post without description": 0,
-  "log file": 1,
+  "retrySleep": 120,
+  "maxDescLen": 512,
+  "postNoImage": 0,
+  "postNoDesc": 0,
+  "logging": 1,
   "headers": {
     "user-agent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0",
     "connection": "keep-alive"
